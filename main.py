@@ -13,7 +13,7 @@ def print_options() -> NoReturn:
 
 def convert_to_morse_code() -> NoReturn:
     """Takes in a plain text string from the user outputs the morse code equivalent"""
-    plain_text = input("String to be converted: ").lower()
+    plain_text = input("Plain text to be converted: ").lower()
     while plain_text != "":
         try:
             morse_code = converter.pt_to_mc(plain_text=plain_text)
@@ -24,8 +24,19 @@ def convert_to_morse_code() -> NoReturn:
             print(e)
             print("Please renter string to try again, or press enter to return to menu")
         plain_text = input("String to be converted: ").lower()
-        print(plain_text)
-
+        
+def convert_to_plain_text() -> NoReturn:
+    morse_code = input("Morse code to be converted: ").lower()
+    while morse_code != "":
+        try:
+            morse_code = converter.mc_to_pt(morse_code=morse_code)
+            print(f"Plain text: {morse_code}")
+            input()
+            print("Enter another string to convert again, or press enter to return to menu")
+        except ValueError as e:
+            print(e)
+            print("Please renter string to try again, or press enter to return to menu")
+        morse_code = input("Morse code to be converted: ").lower()
 
 def main() -> NoReturn:
     print("Welcome to the morse code converter")
@@ -36,7 +47,7 @@ def main() -> NoReturn:
         if option == "1":
             convert_to_morse_code()
         elif option == "2":
-            input("Option currently unavalible")
+            convert_to_plain_text()
     return
 
     
