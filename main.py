@@ -48,6 +48,7 @@ def main() -> NoReturn:
             convert_to_morse_code()
         elif option == "2":
             convert_to_plain_text()
+    print('test')
     return
 
     
