@@ -60,9 +60,7 @@ def mc_to_pt(morse_code: str) -> str:
     """
     output_string: str = ""
     for word in morse_code.split(" " * 10): # Split morse code into words
-        print(word)
         for letter in word.split(" " * 3): # Split word into individual letters
-            print(letter)
             try: 
                 output_string += MORSE_CODE_TO_LETTERS[letter]
             except KeyError:
